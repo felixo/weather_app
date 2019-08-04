@@ -13,6 +13,13 @@ class WeatherAPIException(Exception):
 
 
 def get_weather(city):
+    """
+    Get weather by city. For more information https://openweathermap.org/api
+    :param city: city name - unicode
+    :type city: basestring
+    :return: dict(name, temp)
+    :rtype: dict
+    """
     base_url = 'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={token}'
     url = base_url.format(city=city, token=settings.WEATHER_API_KEY)
     attempt = 0
